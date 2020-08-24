@@ -1,15 +1,5 @@
 const { color } = require('../config');
-const { Listener } = require('discord-akairo');
 const { Command } = require ('discord-akairo');
-
-class bagelListener extends Listener {
-  constructor() {
-    super('bagel', {
-      emitter: 'client',
-      event: 'message'
-    });
-  }
-};
 
 class bagelCommand extends Command {
   constructor() {
@@ -38,5 +28,4 @@ class bagelCommand extends Command {
 
 };
 
-module.exports = bagelListener;
 module.exports = bagelCommand;

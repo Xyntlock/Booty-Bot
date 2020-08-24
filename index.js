@@ -1,5 +1,16 @@
 const { AkairoClient, CommandHandler, ListenerHandler } = require('discord-akairo');
-const { token } = require('./token.json')
+const config = require('./config.js')
+
+function getConfig() {
+  try{
+    const file = require('./token.json')
+    return {'token': file.token, 'prefix': config.testPrefix}
+  }catch(error) {
+    return {'token': process.env.TOKEN, 'prefix': config.prefix}
+  }
+};
+
+const cfg = getConfig();
 
 class MyClient extends AkairoClient {
     constructor() {
@@ -11,7 +22,7 @@ class MyClient extends AkairoClient {
 
         this.commandHandler = new CommandHandler(this, {
             directory: './commands/',
-            prefix: '.'
+            prefix: cfg['prefix']
         });
 
         this.listenerHandler = new ListenerHandler(this, {
@@ -33,4 +44,4 @@ const client = new MyClient();
 client.on('ready', () => {
   console.log('ready');
 });
-client.login(token);
+client.login(cfg['token']);

@@ -3,7 +3,7 @@ const { Command } = require('discord-akairo');
 class PingCommand extends Command {
     constructor() {
         super('ping', {
-           aliases: ['ping', 'jcbsmsmells']
+           aliases: ['ping', 'jcbsmhascuteeyes']
         });
     }
 

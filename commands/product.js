@@ -3,7 +3,7 @@ const {  Command } = require('discord-akairo');
 class productCommand extends Command {
   constructor() {
     super('product', {
-      aliases: ['product', 'jcbsmisstupid'],
+      aliases: ['product', 'jcbsmissmart'],
       args: [
         {
           id: 'numOne',

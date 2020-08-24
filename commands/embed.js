@@ -4,7 +4,7 @@ const { color } = require('../config');
 class embedCommand extends Command {
   constructor() {
     super('embed', {
-      aliases: ['embed', 'jcbsmhasbadhair', 'serverinfo']
+      aliases: ['embed', 'jcbsmhasgreathair', 'serverinfo']
     });
   }
 

@@ -4,8 +4,10 @@ const config = require('./config.js')
 function getConfig() {
   try{
     const file = require('./token.json')
+    console.log('Starting locally')
     return {'token': file.token, 'prefix': config.testPrefix}
   }catch(error) {
+    console.log('Starting on Heroku')
     return {'token': process.env.TOKEN, 'prefix': config.prefix}
   }
 };

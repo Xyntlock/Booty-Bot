@@ -3,7 +3,7 @@ const { Command } = require('discord-akairo');
 class coinFlipCommand extends Command {
   constructor() {
     super('coinflip', {
-      aliases: ['coinflip', 'flip', 'jcbsmsucks']
+      aliases: ['coinflip', 'flip', 'jcbsmsmellsnice']
     });
   }
   exec(message) {

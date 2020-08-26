@@ -11,10 +11,10 @@ class coinFlipCommand extends Command {
     let response;
 
     if (number === 1) {
-      response = 'hEads';
+      response = 'Heads';
     }
     else {
-      response = 'taIls';
+      response = 'Tails';
     }
     message.channel.send(response);
   }

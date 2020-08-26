@@ -28,4 +28,4 @@ class bagelCommand extends Command {
 
 };
 
-module.exports = bagelCommand;
+//module.exports = bagelCommand;

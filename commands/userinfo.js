@@ -4,27 +4,34 @@ const { color } = require('../config');
 class userInfoCommand extends Command {
   constructor() {
     super('userinfo', {
-      aliases: ['userinfo']
+      aliases: ['userinfo'],
+      args: [
+        {
+          id: 'username',
+          type: 'member',
+          default: message => message.member
+        }
+      ]
     });
   }
 
-  exec(message) {
+  exec(message, args) {
     let ban;
-    message.member.bannable ? ban = 'Yes' : ban = 'No';
+    args.username.bannable ? ban = 'Yes' : ban = 'No';
 
     let nick;
-    message.member.nickname ? nick = message.member.nickname : nick = 'None';
+    args.username.nickname ? nick = args.username.nickname : nick = 'None';
 
     const info = {
       color: color.yellow,
-      title: short.tag,
+      title: args.username.user.tag,
       thumbnail: {
-        url: short.avatarURL(),
+        url: args.username.user.avatarURL(),
       },
       fields: [
         {
           name: 'User ID',
-          value: message.author.id,
+          value: args.username.id,
           inline: true
         },
         {
@@ -39,7 +46,7 @@ class userInfoCommand extends Command {
         },
         {
           name: 'Joined',
-          value: message.member.joinedAt,
+          value: args.username.joinedAt,
           inline: true
         }
       ],

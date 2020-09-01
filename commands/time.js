@@ -30,7 +30,7 @@ class timeCommand extends Command {
     if (getLength(minute) <2) {
       minute = (`0${minute}`);
     };
-    if getLength(hour) <2 {
+    if (getLength(hour) <2) {
       hour = (`0${hour}`);
     };
 

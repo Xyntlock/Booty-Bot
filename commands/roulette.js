@@ -81,7 +81,9 @@ class rouletteCommand extends Command {
         message.channel.send({
           embed: deadEmbed
         });
-        collector.stop();
+        if (check !== 1) {
+          collector.stop();
+          }
         return
       }
       else {

@@ -32,24 +32,7 @@ class rouletteCommand extends Command {
 
 
       let check = 1;
-      console.log(`check = ${check}`);
       let left = 5;
-
-
-      const surviveEmbed = {
-        color: color.yellow,
-        title: 'Russian Roulette',
-        fields: [
-          {
-            name: 'CLICK. You live on for another turn.',
-            value: 'Type .trigger to continue.'
-          }
-        ],
-        footer: {
-          text: `Chambers left: ${left} | Brought to you by Booty`,
-          icon_url: 'https://pbs.twimg.com/profile_images/967080985450962944/BVy8-iVx_400x400.jpg'
-        }
-      };
 
       const winEmbed = {
         color: color.yellow,
@@ -66,22 +49,7 @@ class rouletteCommand extends Command {
         }
       };
 
-      //First shot
-      if (reply === 5) {
-        message.channel.send({
-          embed: deadEmbed
-        });
-        return
-      }
-      else {
-        let reply = chamber.shift();
-        console.log(chamber);
-        message.channel.send({
-          embed: surviveEmbed
-        });
-    }
 
-    //Remaining Shots
     function roulette() {
       reply = chamber[0];
       console.log(`check = ${check}`);
@@ -124,6 +92,8 @@ class rouletteCommand extends Command {
         });
       }
     };
+
+    roulette();
 
     const filter = message => message.content.startsWith(['.trigger']);
     const collector = message.channel.createMessageCollector(filter, {time: 60000 });

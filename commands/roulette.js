@@ -13,6 +13,8 @@ class rouletteCommand extends Command {
       chamber.sort(() => Math.random() - 0.5);
       let reply = chamber[0];
       console.log(reply);
+      let check = 1;
+      let left = 5;
 
 
       const deadEmbed = {
@@ -29,10 +31,6 @@ class rouletteCommand extends Command {
           icon_url: 'https://pbs.twimg.com/profile_images/967080985450962944/BVy8-iVx_400x400.jpg'
         }
       };
-
-
-      let check = 1;
-      let left = 5;
 
       const winEmbed = {
         color: color.yellow,
@@ -106,7 +104,6 @@ class rouletteCommand extends Command {
       console.log('collected');
       roulette();
     });
-
   };
 };
 

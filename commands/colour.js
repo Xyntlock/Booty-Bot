@@ -40,6 +40,10 @@ class colourCommand extends Command {
     ],
       image: {
         url:`http://www.htmlcsscolor.com/preview/gallery/${string}.png`
+      },
+      footer: {
+        text: 'Brought to you by Booty',
+        icon_url: 'https://pbs.twimg.com/profile_images/967080985450962944/BVy8-iVx_400x400.jpg'
       }
     };
     message.channel.send({

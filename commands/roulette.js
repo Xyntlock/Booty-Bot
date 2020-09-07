@@ -16,7 +16,6 @@ class rouletteCommand extends Command {
       let check = 1;
       let left = 5;
 
-
       const deadEmbed = {
         color: color.yellow,
         title: 'Russian Roulette',
@@ -95,14 +94,20 @@ class rouletteCommand extends Command {
 
     roulette();
 
-    const filter = message => message.content.startsWith(['.trigger']);
+    const filter = message => message.content.startsWith('.trigger') || message.content.startsWith(`${this.handler.prefix}roulette`);
     const collector = message.channel.createMessageCollector(filter, {time: 60000 });
 
     collector.on('collect', m => {
+      console.log(m);
+      if (m.content.startsWith([`${this.handler.prefix}roulette`])) {
+        collector.stop();
+      }
+      else {
       ++check;
       --left;
       console.log('collected');
       roulette();
+    }
     });
   };
 };

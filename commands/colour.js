@@ -86,14 +86,20 @@ class colourCommand extends Command {
       };
 
       console.log(newColor);
-      let test = Color.rgb(newColor);
-      console.log(test);
-      var colorHex = test.hex();
+      var colorHex = newColor.hex();
 
       let string = colorHex.toString();
       console.log(string);
       string = string.substring(1);
       console.log(string);
+
+      let embedRGB = newColor.array();
+      for (let i = 0; i < embedRGB.length; i++) {
+        embedRGB[i] = Math.round(embedRGB[i]);
+        if (embedRGB[i] > 255) {
+          embedRGB[i] = 255;
+        };
+      };
 
       const colorEmbed = {
         color: colorHex,
@@ -106,7 +112,7 @@ class colourCommand extends Command {
         },
         {
           name: 'RGB Values',
-          value: newColor.array(),
+          value: embedRGB,
           inline: true
         }
       ],

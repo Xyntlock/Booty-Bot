@@ -1,6 +1,7 @@
 const { Command } = require('discord-akairo');
 const Color = require('color');
 const convert = require('color-convert');
+const { capitalise } = require('../functions')
 
 class colourCommand extends Command {
   constructor() {
@@ -103,7 +104,7 @@ class colourCommand extends Command {
 
       const colorEmbed = {
         color: colorHex,
-        title: args.numOne,
+        title: args.numOne[0].toUpperCase() + args.numOne.substring(1),
         fields: [
           {
           name: 'Hex Value',

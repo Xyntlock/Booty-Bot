@@ -72,7 +72,7 @@ class rouletteCommand extends Command {
         });
         collector.stop();
         return
-      };
+      }
 
       if (reply === 5) {
         message.channel.send({
@@ -90,7 +90,7 @@ class rouletteCommand extends Command {
           embed: survivalEmbed
         });
       }
-    };
+    }
 
     roulette();
 
@@ -109,7 +109,7 @@ class rouletteCommand extends Command {
       roulette();
     }
     });
-  };
-};
+  }
+}
 
 module.exports = rouletteCommand;

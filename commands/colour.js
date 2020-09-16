@@ -1,7 +1,7 @@
 const { Command } = require('discord-akairo');
 const Color = require('color');
 const convert = require('color-convert');
-const { capitalise } = require('../functions')
+const { capitalise } = require('../functions');
 
 class colourCommand extends Command {
   constructor() {
@@ -16,18 +16,17 @@ class colourCommand extends Command {
         }
       ]
     });
-  };
+  }
 
   exec(message, args) {
 
     console.log(args.numOne);
     args.numOne = args.numOne.toLowerCase();
-
     if (args.numOne === 'random') {
       function getColor() {
         let colorValue;
         return colorValue = Math.floor(Math.random()*256);
-      };
+      }
       var ranColor = Color.rgb(getColor(), getColor(), getColor());
       var ranHex = ranColor.hex();
       var ranRGB = ranColor.rgb().array();
@@ -73,18 +72,18 @@ class colourCommand extends Command {
         newColor = Color.rgb(words[(words.length-1)]);
       } catch(e) {
         message.channel.send('Please provide me with a colour.');
-      };
+      }
 
       if (words[0] === 'light') {
         newColor = newColor.lighten(0.25);
-      };
+      }
       if (words[0] === 'dark') {
         newColor = newColor.darken(0.5);
-      };
+      }
       if (words[0] !== 'dark' && words[0] !== 'light' && words.length > 1) {
         message.channel.send('Please provide me with a colour.');
-        return
-      };
+        return;
+      }
 
       console.log(newColor);
       var colorHex = newColor.hex();
@@ -99,12 +98,12 @@ class colourCommand extends Command {
         embedRGB[i] = Math.round(embedRGB[i]);
         if (embedRGB[i] > 255) {
           embedRGB[i] = 255;
-        };
-      };
+        }
+      }
 
       const colorEmbed = {
         color: colorHex,
-        title: args.numOne[0].toUpperCase() + args.numOne.substring(1),
+        title: capitalise(args.numOne),
         fields: [
           {
           name: 'Hex Value',
@@ -130,7 +129,7 @@ class colourCommand extends Command {
         embed: colorEmbed
       });
      }
-  };
-};
+  }
+}
 
 module.exports = colourCommand;

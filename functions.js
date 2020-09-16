@@ -1,8 +1,6 @@
 function capitalise(s) {
-    s = s[0].toUpperCase() + s.substring(1);
-    console.log(s);
-    return;
-};
+   return s[0].toUpperCase() + s.substring(1);
+}
 
 module.exports = {
   capitalise

@@ -24,7 +24,7 @@ class pingListener extends Listener {
         embed: bagelembed
       });
     }
-  };
-};
+  }
+}
 
 module.exports = pingListener;

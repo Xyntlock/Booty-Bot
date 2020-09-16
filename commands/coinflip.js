@@ -18,6 +18,6 @@ class coinFlipCommand extends Command {
     }
     message.channel.send(response);
   }
-};
+}
 
 module.exports = coinFlipCommand;

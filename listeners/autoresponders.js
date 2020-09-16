@@ -10,7 +10,7 @@ class pingListener extends Listener {
   }
 
   exec(message) {
-    message.mentions.users.has(this.client.user.id) ? message.channel.send('<:pingsock:731609128941912096>') : ''
+    message.mentions.users.has(this.client.user.id) ? message.channel.send('<:pingsock:731609128941912096>') : '';
 
     if (/bagel/i.test(message.content)) {
       const bagelembed = {
@@ -24,6 +24,12 @@ class pingListener extends Listener {
         embed: bagelembed
       });
     }
+
+    if (message.author.id === '628232571003863041') {
+      console.log('id registered');
+      message.author.send('Fuck you');
+    }
+
   }
 }
 

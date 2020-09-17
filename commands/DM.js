@@ -25,6 +25,6 @@ class dmCommand extends Command {
     args.username.user.send(`${message.member} says ${args.words}`);
     message.channel.send('DM sent!');
   }
-};
+}
 
 module.exports = dmCommand;

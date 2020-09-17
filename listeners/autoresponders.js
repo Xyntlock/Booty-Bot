@@ -24,12 +24,6 @@ class pingListener extends Listener {
         embed: bagelembed
       });
     }
-
-    if (message.author.id === '628232571003863041') {
-      console.log('id registered');
-      message.author.send('Fuck you');
-    }
-
   }
 }
 

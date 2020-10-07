@@ -68,6 +68,10 @@ class colourCommand extends Command {
       let words = args.numOne.split(" ");
       let newColor;
       console.log(words.length);
+      if (words[0] !== 'dark' && words[0] !== 'light' && words.length > 1) {
+        message.channel.send('Please provide me with a colour.');
+        return;
+      }
       try {
         newColor = Color.rgb(words[(words.length-1)]);
       } catch(e) {
@@ -80,10 +84,7 @@ class colourCommand extends Command {
       if (words[0] === 'dark') {
         newColor = newColor.darken(0.5);
       }
-      if (words[0] !== 'dark' && words[0] !== 'light' && words.length > 1) {
-        message.channel.send('Please provide me with a colour.');
-        return;
-      }
+
 
       console.log(newColor);
       var colorHex = newColor.hex();

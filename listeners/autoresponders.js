@@ -17,7 +17,9 @@ class pingListener extends Listener {
         color: color.yellow,
         title: 'Om nom nom...bagels',
         image: {
-          url:'https://kirbiecravings.com/wp-content/uploads/2018/01/2-ingredient-bagels-14a1-700x692.jpg'
+          url:'https://cdn.discordapp.com/attachments/519267758039629824/772118751566626846/bgels_1.jpg',
+          height: 11,
+          width: 10
         }
       }
       message.channel.send({

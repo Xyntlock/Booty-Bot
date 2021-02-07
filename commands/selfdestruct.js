@@ -42,9 +42,27 @@ class destructCommand extends Command {
             }
         };
 
+        const freeEmbed = {
+            color: color.yellow,
+            title: 'Welcome :)',
+            fields: [
+                {
+                    name: 'Freedom',
+                    value: `To free yourself, you must guess the correct 2-digit code, which is changed every hour.`
+                }
+            ],
+            footer: {
+                text: `Good Luck! | Brought to you by Booty`,
+                icon_url: 'https://pbs.twimg.com/profile_images/967080985450962944/BVy8-iVx_400x400.jpg'
+            }
+        };
+
         message.channel.send({
             embed: destructEmbed
         });
+
+        let destructChannel = message.guild.channels.cache.get(`802232326050414633`);
+
 
         function sleep(duration) {
             return new Promise(resolve => {
@@ -58,6 +76,9 @@ class destructCommand extends Command {
             await sleep(5);
             let role = message.guild.roles.cache.find(r => r.name === "Self Destructed");
              args.name.roles.add(role);
+            destructChannel.send({
+                embed: freeEmbed
+            });
         }
         
         destructUser();

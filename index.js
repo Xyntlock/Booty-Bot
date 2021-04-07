@@ -17,7 +17,7 @@ const cfg = getConfig();
 class MyClient extends AkairoClient {
     constructor() {
         super({
-            // Options for Akairo go here.
+          ownerID: `140150251213422592`
         }, {
             // Options for discord.js goes here.
         });

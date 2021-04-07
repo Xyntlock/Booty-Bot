@@ -8,7 +8,7 @@ class embedCommand extends Command {
     });
   }
 
-  exec(message) {
+  async exec(message) {
     const embed = {
       color: color.yellow,
       title: 'Server Info',
@@ -41,7 +41,7 @@ class embedCommand extends Command {
       ],
       footer: {
         text: 'Brought to you by Booty',
-        icon_url: 'https://pbs.twimg.com/profile_images/967080985450962944/BVy8-iVx_400x400.jpg'
+        icon_url: (await this.client.users.fetch(this.client.ownerID)).displayAvatarURL()
       }
     };
     message.channel.send({

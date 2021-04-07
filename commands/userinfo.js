@@ -15,7 +15,7 @@ class userInfoCommand extends Command {
     });
   }
 
-  exec(message, args) {
+  async exec(message, args) {    
     let ban;
     args.username.bannable ? ban = 'Yes' : ban = 'No';
 
@@ -52,7 +52,7 @@ class userInfoCommand extends Command {
       ],
       footer: {
         text: 'Brought to you by Booty',
-        icon_url: 'https://pbs.twimg.com/profile_images/967080985450962944/BVy8-iVx_400x400.jpg'
+        icon_url: (await this.client.users.fetch(this.client.ownerID)).displayAvatarURL()
       }
     };
 

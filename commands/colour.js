@@ -18,8 +18,7 @@ class colourCommand extends Command {
     });
   }
 
-  exec(message, args) {
-
+  async exec(message, args) {
     console.log(args.numOne);
     args.numOne = args.numOne.toLowerCase();
     if (args.numOne === 'random') {
@@ -57,7 +56,7 @@ class colourCommand extends Command {
         },
         footer: {
           text: 'Brought to you by Booty',
-          icon_url: 'https://pbs.twimg.com/profile_images/967080985450962944/BVy8-iVx_400x400.jpg'
+          icon_url: (await this.client.users.fetch(this.client.ownerID)).displayAvatarURL()
         }
       };
       message.channel.send({
@@ -122,7 +121,7 @@ class colourCommand extends Command {
         },
         footer: {
           text: 'Brought to you by Booty',
-          icon_url: 'https://pbs.twimg.com/profile_images/967080985450962944/BVy8-iVx_400x400.jpg'
+          icon_url: (await this.client.users.fetch(this.client.ownerID)).displayAvatarURL()
         }
       };
 

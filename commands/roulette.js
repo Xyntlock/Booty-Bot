@@ -8,7 +8,9 @@ class rouletteCommand extends Command {
     });
   }
 
-    exec(message) {
+    async exec(message) {
+      let client = this.client;
+      
       let chamber = [0, 1, 2, 3, 4, 5];
       chamber.sort(() => Math.random() - 0.5);
       let reply = chamber[0];
@@ -27,7 +29,7 @@ class rouletteCommand extends Command {
         ],
         footer: {
           text: 'Brought to you by Booty',
-          icon_url: 'https://pbs.twimg.com/profile_images/967080985450962944/BVy8-iVx_400x400.jpg'
+          icon_url: (await this.client.users.fetch(this.client.ownerID)).displayAvatarURL()
         }
       };
 
@@ -42,12 +44,12 @@ class rouletteCommand extends Command {
         ],
         footer: {
           text: `Brought to you by Booty`,
-          icon_url: 'https://pbs.twimg.com/profile_images/967080985450962944/BVy8-iVx_400x400.jpg'
+          icon_url: (await this.client.users.fetch(this.client.ownerID)).displayAvatarURL()
         }
       };
 
 
-    function roulette() {
+    async function roulette() {
       reply = chamber[0];
       console.log(`check = ${check}`);
 
@@ -62,7 +64,7 @@ class rouletteCommand extends Command {
         ],
         footer: {
           text: `Chambers left: ${left} | Brought to you by Booty`,
-          icon_url: 'https://pbs.twimg.com/profile_images/967080985450962944/BVy8-iVx_400x400.jpg'
+          icon_url: (await client.users.fetch(client.ownerID)).displayAvatarURL()
         }
       };
 

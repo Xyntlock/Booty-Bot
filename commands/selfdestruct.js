@@ -15,7 +15,7 @@ class destructCommand extends Command {
         });
     }
 
-    exec(message, args) {
+    async exec(message, args) {
         console.log(args.name);
         if(args.name.id !== message.member.id) {
             if(message.member.permissions.has('ADMINISTRATOR')) {
@@ -38,7 +38,7 @@ class destructCommand extends Command {
             ],
             footer: {
                 text: `Your greatest mistake. | Brought to you by Booty`,
-                icon_url: 'https://pbs.twimg.com/profile_images/967080985450962944/BVy8-iVx_400x400.jpg'
+                icon_url: (await this.client.users.fetch(this.client.ownerID)).displayAvatarURL()
             }
         };
 
@@ -53,7 +53,7 @@ class destructCommand extends Command {
             ],
             footer: {
                 text: `Good Luck! | Brought to you by Booty`,
-                icon_url: 'https://pbs.twimg.com/profile_images/967080985450962944/BVy8-iVx_400x400.jpg'
+                icon_url: (await this.client.users.fetch(this.client.ownerID)).displayAvatarURL()
             }
         };
 

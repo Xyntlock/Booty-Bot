@@ -8,11 +8,12 @@ class leaveListener extends Listener {
         });
     }
 
-    exec(member) {
+    async exec(member) {
         console.log(`Yup`);
         
         let prism = member.guild.channels.cache.get(`447702094430863360`);
-        prism.send(`<@227848397447626752>, ${member.user.tag} (${member.displayName}) just left your server. What has craig done now?`);
+        prism.send(`<@227848397447626752>, ${member.user.tag} (${member.displayName}) just left your server. The rats have taken another one for the cause.
+        ID of the fallen: \`${member.user.id}\``);
         console.log(`Test ${member.user}`);
     }
 }

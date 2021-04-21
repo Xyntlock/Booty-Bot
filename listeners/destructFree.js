@@ -37,7 +37,7 @@ class destructListener extends Listener {
             return;
         }
         
-        console.log(code);
+        console.log(`${code1}${code2}`);
         if(message.content === `${code1}${code2}`) {
             let role = message.guild.roles.cache.find(r => r.name === "Self Destructed");
             message.member.roles.remove(role);

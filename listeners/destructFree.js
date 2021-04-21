@@ -10,8 +10,12 @@ let keycodes = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
     80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
     90, 91, 92, 93, 94, 95, 96, 97, 98, 99];
 
+let keycode1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let keycode2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 function setCode() {
-    keycodes.sort(() => Math.random() - 0.5);
+    keycode1.sort(() => Math.random() - 0.5);
+    keycode2.sort(() => Math.random() - 0.5);
 }
 
 setInterval(setCode, 3600000);
@@ -25,17 +29,19 @@ class destructListener extends Listener {
     }
 
     exec(message) {
-        let code = keycodes[0];
+        let code1 = keycode1[0];
+        let code2 = keycode2[0];
         let destructChat = message.guild.channels.cache.get(`802232326050414633`);
         
         if (message.channel !== destructChat) {
             return;
         }
         
-        console.log(`${code}`);
-        if(message.content === `${code}`) {
+        console.log(code);
+        if(message.content === `${code1}${code2}`) {
             let role = message.guild.roles.cache.find(r => r.name === "Self Destructed");
             message.member.roles.remove(role);
+            setCode();
         }
     }
 }

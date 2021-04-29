@@ -18,10 +18,10 @@ class destructListener extends Listener {
         });
     }
 
-    exec(message) {
+    async exec(message) {
         let code1 = keycode1[0];
         let code2 = keycode2[0];
-        let destructChat = message.guild.channels.cache.get(`802232326050414633`);
+        let destructChat = await this.client.channels.fetch(`802232326050414633`);
         
         if (message.channel !== destructChat) {
             return;

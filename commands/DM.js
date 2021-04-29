@@ -20,10 +20,10 @@ class dmCommand extends Command {
   }
 
   exec(message, args) {
-    console.log(args.username);
-    console.log(args.words);
-    args.username.user.send(`${message.member} says ${args.words}`);
-    message.channel.send('DM sent!');
+        console.log(args.username);
+        console.log(args.words);
+        args.username.user.send(`${message.member} says ${args.words}`);
+        message.channel.send('DM sent!');
   }
 }
 

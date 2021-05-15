@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 const { color } = require('../config');
+const { sleep } = require('../functions.js');
 
 class destructCommand extends Command {
     constructor() {
@@ -63,19 +64,10 @@ class destructCommand extends Command {
 
         let destructChannel = message.guild.channels.cache.get(`802232326050414633`);
 
-
-        function sleep(duration) {
-            return new Promise(resolve => {
-                setTimeout(() => {
-                    resolve()
-                }, duration * 1000)
-            })
-        }
-
         async function destructUser() {
             await sleep(5);
             let role = message.guild.roles.cache.find(r => r.name === "Self Destructed");
-             args.name.roles.add(role);
+            args.name.roles.add(role);
             destructChannel.send({
                 embed: freeEmbed
             });

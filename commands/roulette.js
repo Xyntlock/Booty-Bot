@@ -1,5 +1,6 @@
 const { Command } = require('discord-akairo');
 const { color } = require('../config');
+const { sleep } = require('../functions.js');
 
 class rouletteCommand extends Command {
   constructor() {
@@ -77,9 +78,17 @@ class rouletteCommand extends Command {
       }
 
       if (reply === 5) {
+        let role = message.guild.roles.cache.find(r => r.name === "Self Destructed");
+        message.channel.messages.fetch({ limit: 1 }).then(messages => {
+          let lastMessage = messages.first();
+
+          lastMessage.member.roles.add(role);
+        });
+        
         message.channel.send({
           embed: deadEmbed
         });
+
         if (check !== 1) {
           collector.stop();
           }

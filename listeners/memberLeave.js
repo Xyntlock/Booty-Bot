@@ -9,8 +9,8 @@ class leaveListener extends Listener {
     }
 
     async exec(member) {
-        let responses = ['Seems they peeweed too close to the sun', 'Fuck', 'Bye have a great time', 'Another one bites the dust', 'Got kicked out of mosh', 'Spunky toes', 'Kassim ate them',
-    'Fucking died', 'Got arrested', 'Booteh shat on them', 'Ragequit', 'Nae nae\'d their way out the server', 'Whipped too hard', 'Crashed their car', 'Just left, innit', 'PRISM is just too naughty',
+        let responses = ['Seems they peeweed too close to the sun', 'Fuck', 'Bye have a great time', 'Another one bites the dust', 'Kid got kicked out of mosh', 'Spunky toes', 'Kassim ate them',
+    'They simple fucking died', 'Man got arrested styll', 'Booteh shat on them', 'Ragequit', 'They nae nae\'d their way out the server', 'Whipped too hard', 'Megan crashed their car', 'They just left, innit', 'PRISM is just too naughty',
     'PRISM got too silly', 'Bring back #economy', '*Moans*'];
 
     let index = Math.floor(Math.random() * responses.length);

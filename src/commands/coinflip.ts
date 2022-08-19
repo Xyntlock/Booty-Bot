@@ -1,7 +1,7 @@
 import { Command } from 'discord-akairo'
 import type { Message } from 'discord.js'
 
-export class coinFlipCommand extends Command {
+class coinFlipCommand extends Command {
   constructor() {
     super('coinflip', {
       aliases: ['coinflip', 'flip', 'jcbsmsmellsnice'],
@@ -19,3 +19,5 @@ export class coinFlipCommand extends Command {
     message.channel.send(response)
   }
 }
+
+module.exports = coinFlipCommand

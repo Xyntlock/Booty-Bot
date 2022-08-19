@@ -8,7 +8,7 @@ type Args = {
   numOne: string
 }
 
-export class colourCommand extends Command {
+class colourCommand extends Command {
   constructor() {
     super('colour', {
       aliases: ['colour', 'color'],
@@ -141,3 +141,5 @@ export class colourCommand extends Command {
     }
   }
 }
+
+module.exports = colourCommand

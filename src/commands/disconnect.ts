@@ -29,3 +29,5 @@ export class disconnectCommand extends Command {
     }
   }
 }
+
+module.exports = disconnectCommand

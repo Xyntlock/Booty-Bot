@@ -1,14 +1,15 @@
-const { Command } = require('discord-akairo');
-const { color } = require('../config');
+import { Command } from 'discord-akairo'
+import type { Message } from 'discord.js'
+import Config from '../config'
 
 class keanuCommand extends Command {
-  constructor() {
+  public constructor() {
     super('keanu', {
-      aliases: ['keanu']
-    });
+      aliases: ['keanu'],
+    })
   }
 
-  exec (message) {
+  public exec(message: Message) {
     let Keanus = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Reuni%C3%A3o_com_o_ator_norte-americano_Keanu_Reeves_%28cropped%29.jpg/1200px-Reuni%C3%A3o_com_o_ator_norte-americano_Keanu_Reeves_%28cropped%29.jpg',
       'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Keanu_Reeves_2013_%2810615146086%29_%28cropped%29.jpg/220px-Keanu_Reeves_2013_%2810615146086%29_%28cropped%29.jpg',
@@ -40,24 +41,24 @@ class keanuCommand extends Command {
       'https://pyxis.nymag.com/v1/imgs/d52/755/d01a94ac86597e69203dd13f03426ec9bd-GettyImages-71240438.rdeep-vertical.w450.jpg',
       'https://pyxis.nymag.com/v1/imgs/947/371/42f7e341bf841b0dfb2abcc2fb16968fee-spl1178771-006.rdeep-vertical.w450.jpg',
       'https://pyxis.nymag.com/v1/imgs/4e8/64c/7e058dc5236e7efa5922c448b9bc10e980-spl210324-002.rdeep-vertical.w450.jpg',
-      'https://pyxis.nymag.com/v1/imgs/48e/b49/3bce78d36b45b429f7f615da265927e76f-spl216522-008.rdeep-vertical.w450.jpg'
-    ];
+      'https://pyxis.nymag.com/v1/imgs/48e/b49/3bce78d36b45b429f7f615da265927e76f-spl216522-008.rdeep-vertical.w450.jpg',
+    ]
 
-    Keanus.sort(() => Math.random() - 0.5);
-    let reply = Keanus[0];
+    Keanus.sort(() => Math.random() - 0.5)
+    let reply = Keanus[0]
 
     const keanuEmbed = {
-      color: color.yellow,
+      color: Config.color.yellow,
       title: 'Keanu',
       image: {
-        url: reply
-      }
-    };
+        url: reply,
+      },
+    }
 
     message.channel.send({
-      embed: keanuEmbed
-    });
-  };
-};
+      embed: keanuEmbed,
+    })
+  }
+}
 
-module.exports = keanuCommand;
+module.exports = keanuCommand

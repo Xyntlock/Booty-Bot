@@ -2,3 +2,6 @@ package-lock.json
 /node_modules/*
 token.json
 /commands/test.js
+.vscode
+dist
+.env

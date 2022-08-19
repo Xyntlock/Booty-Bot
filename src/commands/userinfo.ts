@@ -32,9 +32,6 @@ class userInfoCommand extends Command {
     const info = {
       color: process.env.COLOR_YELLOW,
       title: args.username.user.tag,
-      thumbnail: {
-        url: args.username.user.avatarURL(),
-      },
       fields: [
         {
           name: 'User ID',
@@ -64,7 +61,7 @@ class userInfoCommand extends Command {
     }
 
     message.channel.send({
-      embeds: [info],
+      embed: info,
     })
   }
 }

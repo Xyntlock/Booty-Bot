@@ -1,22 +1,27 @@
-const { Command } = require('discord-akairo')
-const { sleep } = require('../functions')
+import { Command } from 'discord-akairo'
+import { sleep } from '../functions'
+import type { Message } from 'discord.js'
 
 class rouletteCommand extends Command {
-  constructor() {
+  public constructor() {
     super('roulette', {
       aliases: ['roulette'],
     })
   }
 
-  async exec(message) {
+  public async exec(message: Message) {
     let client = this.client
 
     let chamber = [0, 1, 2, 3, 4, 5]
     chamber.sort(() => Math.random() - 0.5)
-    let reply = chamber[0]
+    let reply: number | undefined = chamber[0]
     console.log(reply)
     let check = 1
     let left = 5
+
+    // get xyntlock avatar
+    let owner = this.client.ownerID
+    if (typeof owner !== 'string') owner = owner[0]
 
     const deadEmbed = {
       color: process.env.COLOR_YELLOW,
@@ -29,9 +34,7 @@ class rouletteCommand extends Command {
       ],
       footer: {
         text: 'Brought to you by Booty',
-        icon_url: (
-          await this.client.users.fetch(this.client.ownerID)
-        ).displayAvatarURL(),
+        icon_url: (await this.client.users.fetch(owner)).displayAvatarURL(),
       },
     }
 
@@ -46,9 +49,7 @@ class rouletteCommand extends Command {
       ],
       footer: {
         text: `Brought to you by Booty`,
-        icon_url: (
-          await this.client.users.fetch(this.client.ownerID)
-        ).displayAvatarURL(),
+        icon_url: (await this.client.users.fetch(owner)).displayAvatarURL(),
       },
     }
 
@@ -68,7 +69,9 @@ class rouletteCommand extends Command {
         footer: {
           text: `Chambers left: ${left} | Brought to you by Booty`,
           icon_url: (
-            await client.users.fetch(client.ownerID)
+            await client.users.fetch(
+              typeof owner === 'string' ? owner : owner[0]
+            )
           ).displayAvatarURL(),
         },
       }
@@ -82,13 +85,14 @@ class rouletteCommand extends Command {
       }
 
       if (reply === 5) {
-        let role = message.guild.roles.cache.find(
+        let role = message.guild?.roles.cache.find(
           r => r.name === 'Self Destructed'
         )
+
         message.channel.messages.fetch({ limit: 1 }).then(messages => {
           let lastMessage = messages.first()
 
-          lastMessage.member.roles.add(role)
+          if (role) lastMessage?.member?.roles.add(role)
         })
 
         message.channel.send({
@@ -110,7 +114,7 @@ class rouletteCommand extends Command {
 
     roulette()
 
-    const filter = message =>
+    const filter = (message: Message) =>
       message.content.startsWith('.trigger') ||
       message.content.startsWith(`${this.handler.prefix}roulette`)
     const collector = message.channel.createMessageCollector(filter, {

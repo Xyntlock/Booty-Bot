@@ -63,14 +63,9 @@ class userInfoCommand extends Command {
       },
     }
 
-    const channelToMessage: TextChannel = message.channel as TextChannel
-
-    channelToMessage.send(
-      {
-        embed: info,
-      },
-      {}
-    )
+    message.channel.send({
+      embeds: [info],
+    })
   }
 }
 

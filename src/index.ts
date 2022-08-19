@@ -5,7 +5,7 @@ import * as dotenv from 'dotenv'
 function getConfig() {
   dotenv.config()
   console.log('Starting')
-  return { token: process.env.TOKEN, prefix: Config.testPrefix }
+  return { token: process.env.TOKEN, prefix: Config.prefix }
 }
 
 const cfg = getConfig()

@@ -4,4 +4,4 @@ token.json
 /commands/test.js
 .vscode
 dist
-dist
+.env

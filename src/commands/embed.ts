@@ -1,0 +1,56 @@
+import { Command } from 'discord-akairo'
+import type { Message } from 'discord.js'
+
+class embedCommand extends Command {
+  constructor() {
+    super('embed', {
+      aliases: ['embed', 'jcbsmhasgreathair', 'serverinfo'],
+    })
+  }
+
+  async exec(message: Message) {
+    let owner = this.client.ownerID
+    if (typeof owner !== 'string') owner = owner[0]
+
+    const embed = {
+      color: process.env.COLOR_YELLOW,
+      title: 'Server Info',
+      fields: [
+        {
+          name: 'Server Name',
+          value: message.guild?.name,
+          inline: true,
+        },
+        {
+          name: 'Member Count',
+          value: message.guild?.memberCount,
+          inline: true,
+        },
+        {
+          name: 'Bossman',
+          value: message.guild?.owner,
+          inline: true,
+        },
+        {
+          name: 'Server Region',
+          value: message.guild?.region,
+          inline: true,
+        },
+        {
+          name: 'Boosts',
+          value: message.guild?.premiumSubscriptionCount,
+          inline: true,
+        },
+      ],
+      footer: {
+        text: 'Brought to you by Booty',
+        icon_url: (await this.client.users.fetch(owner)).displayAvatarURL(),
+      },
+    }
+    message.channel.send({
+      embed: embed,
+    })
+  }
+}
+
+module.exports = embedCommand

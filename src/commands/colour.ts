@@ -2,6 +2,11 @@ import { Command } from 'discord-akairo'
 import Color from 'color'
 import convert from 'color-convert'
 import { capitalise } from '../functions'
+import type { Message } from 'discord.js'
+
+type Args = {
+  numOne: string
+}
 
 class colourCommand extends Command {
   constructor() {
@@ -18,7 +23,7 @@ class colourCommand extends Command {
     })
   }
 
-  async exec(message, args) {
+  async exec(message: Message, args: Args) {
     console.log(args.numOne)
     args.numOne = args.numOne.toLowerCase()
     if (args.numOne === 'random') {
@@ -57,7 +62,7 @@ class colourCommand extends Command {
         footer: {
           text: 'Brought to you by Booty',
           icon_url: (
-            await this.client.users.fetch(this.client.ownerID)
+            await this.client.users.fetch(this.client.ownerID[0])
           ).displayAvatarURL(),
         },
       }
@@ -77,6 +82,8 @@ class colourCommand extends Command {
       } catch (e) {
         message.channel.send('Please provide me with a colour.')
       }
+
+      if (!newColor) return
 
       if (words[0] === 'light') {
         newColor = newColor.lighten(0.25)
@@ -122,7 +129,7 @@ class colourCommand extends Command {
         footer: {
           text: 'Brought to you by Booty',
           icon_url: (
-            await this.client.users.fetch(this.client.ownerID)
+            await this.client.users.fetch(this.client.ownerID[0])
           ).displayAvatarURL(),
         },
       }

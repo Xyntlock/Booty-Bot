@@ -1,7 +1,7 @@
 module.exports = {
   color: {
-    yellow: '#FFE031'
+    yellow: '#FFE031',
   },
   prefix: '.',
-  testPrefix: ','
+  testPrefix: ',',
 }

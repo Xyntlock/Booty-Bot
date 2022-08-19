@@ -26,6 +26,11 @@ class colourCommand extends Command {
   async exec(message: Message, args: Args) {
     console.log(args.numOne)
     args.numOne = args.numOne.toLowerCase()
+
+    //get xyntlock avatar
+    let owner = this.client.ownerID
+    if (typeof owner !== 'string') owner = owner[0]
+
     if (args.numOne === 'random') {
       function getColor() {
         let colorValue
@@ -61,9 +66,7 @@ class colourCommand extends Command {
         },
         footer: {
           text: 'Brought to you by Booty',
-          icon_url: (
-            await this.client.users.fetch(this.client.ownerID[0])
-          ).displayAvatarURL(),
+          icon_url: (await this.client.users.fetch(owner)).displayAvatarURL(),
         },
       }
       message.channel.send({
@@ -107,9 +110,6 @@ class colourCommand extends Command {
           embedRGB[i] = 255
         }
       }
-
-      let owner = this.client.ownerID
-      if (typeof owner !== 'string') owner = owner[0]
 
       const colorEmbed = {
         color: colorHex,

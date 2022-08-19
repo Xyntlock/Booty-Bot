@@ -7,10 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc"
   },
+  "engine": {
+    "node": ">=16.9.0"
+  },
   "author": "Xyntlock",
   "license": "ISC",
   "dependencies": {
-    "@sapphire/framework": "^3.0.0-next.7dd13af.0",
+    "@types/color": "^3.0.3",
     "color": "^3.1.2",
     "color-convert": "^2.0.1",
     "discord-akairo": "^8.1.0",
@@ -21,7 +24,6 @@
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
-    "@sapphire/ts-config": "^3.3.4",
     "@tsconfig/recommended": "^1.0.1",
     "@types/node": "^18.7.6",
     "@typescript-eslint/eslint-plugin": "^5.33.1",

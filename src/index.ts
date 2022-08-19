@@ -4,22 +4,16 @@ import * as dotenv from 'dotenv'
 
 function getConfig() {
   dotenv.config()
-  try {
-    const file = require('../token.json')
-    console.log('Starting locally')
-    return { token: file.token, prefix: config.testPrefix }
-  } catch (error) {
-    console.log('Starting on Heroku')
-    return { token: process.env.TOKEN, prefix: config.prefix }
-  }
+  console.log('Starting')
+  return { token: process.env.TOKEN, prefix: Config.testPrefix }
 }
 
 const cfg = getConfig()
 
 class MyClient extends AkairoClient {
-  commandHandler: CommandHandler
-  listenerHandler: ListenerHandler
-  constructor() {
+  public commandHandler: CommandHandler
+  public listenerHandler: ListenerHandler
+  public constructor() {
     super(
       {
         ownerID: `140150251213422592`,

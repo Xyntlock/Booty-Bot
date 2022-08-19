@@ -108,6 +108,9 @@ class colourCommand extends Command {
         }
       }
 
+      let owner = this.client.ownerID
+      if (typeof owner !== 'string') owner = owner[0]
+
       const colorEmbed = {
         color: colorHex,
         title: capitalise(args.numOne),
@@ -128,9 +131,7 @@ class colourCommand extends Command {
         },
         footer: {
           text: 'Brought to you by Booty',
-          icon_url: (
-            await this.client.users.fetch(this.client.ownerID[0])
-          ).displayAvatarURL(),
+          icon_url: (await this.client.users.fetch(owner)).displayAvatarURL(),
         },
       }
 

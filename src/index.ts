@@ -1,7 +1,6 @@
 import { AkairoClient, CommandHandler, ListenerHandler } from 'discord-akairo'
-import config from './config'
+import Config from './config'
 import * as dotenv from 'dotenv'
-
 
 function getConfig() {
   dotenv.config()
@@ -49,8 +48,8 @@ class MyClient extends AkairoClient {
   }
 }
 
-  const client = new MyClient()
-  client.on('ready', () => {
-    console.log('ready')
-  })
-  client.login(cfg['token'])
+const client = new MyClient()
+client.on('ready', () => {
+  console.log('ready')
+})
+client.login(cfg['token'])

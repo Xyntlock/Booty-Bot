@@ -1,5 +1,6 @@
 import { Command } from 'discord-akairo'
 import type { Message } from 'discord.js'
+import Config from '../config'
 
 class timeCommand extends Command {
   public constructor() {
@@ -37,7 +38,7 @@ class timeCommand extends Command {
     let timeFormat = `${hour}:${minute}`
 
     const timeEmbed = {
-      color: process.env.COLOR_YELLOW,
+      color: Config.color.yellow,
       title: 'Current Time',
       fields: [
         {

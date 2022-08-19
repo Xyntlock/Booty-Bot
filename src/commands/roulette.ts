@@ -1,6 +1,7 @@
 import { Command } from 'discord-akairo'
 import { sleep } from '../functions'
 import type { Message } from 'discord.js'
+import Config from '../config'
 
 class rouletteCommand extends Command {
   public constructor() {
@@ -24,7 +25,7 @@ class rouletteCommand extends Command {
     if (typeof owner !== 'string') owner = owner[0]
 
     const deadEmbed = {
-      color: process.env.COLOR_YELLOW,
+      color: Config.color.yellow,
       title: 'Russian Roulette',
       fields: [
         {
@@ -39,7 +40,7 @@ class rouletteCommand extends Command {
     }
 
     const winEmbed = {
-      color: process.env.COLOR_YELLOW,
+      color: Config.color.yellow,
       title: 'Russian Roulette',
       fields: [
         {
@@ -58,7 +59,7 @@ class rouletteCommand extends Command {
       console.log(`check = ${check}`)
 
       const survivalEmbed = {
-        color: process.env.COLOR_YELLOW,
+        color: Config.color.yellow,
         title: 'Russian Roulette',
         fields: [
           {

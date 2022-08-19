@@ -1,5 +1,5 @@
 import { Listener } from 'discord-akairo'
-import config from '../config'
+import Config from '../config'
 import type { Message } from 'discord.js'
 
 class pingListener extends Listener {
@@ -19,7 +19,7 @@ class pingListener extends Listener {
 
     if (/bagel/i.test(message.content)) {
       const bagelembed = {
-        color: config.color.yellow,
+        color: Config.color.yellow,
         title: 'Om nom nom...bagels',
         image: {
           url: 'https://cdn.discordapp.com/attachments/519267758039629824/772118751566626846/bgels_1.jpg',

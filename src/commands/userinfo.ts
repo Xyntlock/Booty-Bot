@@ -1,5 +1,6 @@
 import { Command } from 'discord-akairo'
-import type { Message, GuildMember, TextChannel } from 'discord.js'
+import type { Message, GuildMember } from 'discord.js'
+import Config from '../config'
 
 interface Args {
   username: GuildMember
@@ -30,10 +31,10 @@ class userInfoCommand extends Command {
     args.username.nickname ? (nick = args.username.nickname) : (nick = 'None')
 
     let url = args.username.user.avatarURL()
-    if(!url) url = ''
+    if (!url) url = ''
 
     const info = {
-      color: process.env.COLOR_YELLOW,
+      color: Config.color.yellow,
       title: args.username.user.tag,
       thumbnail: {
         url: url,

@@ -1,5 +1,6 @@
 import { Command } from 'discord-akairo'
 import type { Message } from 'discord.js'
+import Config from '../config'
 
 class keanuCommand extends Command {
   public constructor() {
@@ -47,7 +48,7 @@ class keanuCommand extends Command {
     let reply = Keanus[0]
 
     const keanuEmbed = {
-      color: process.env.COLOR_YELLOW,
+      color: Config.color.yellow,
       title: 'Keanu',
       image: {
         url: reply,

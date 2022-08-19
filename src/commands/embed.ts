@@ -1,5 +1,6 @@
 import { Command } from 'discord-akairo'
 import type { Message } from 'discord.js'
+import Config from '../config'
 
 class embedCommand extends Command {
   public constructor() {
@@ -13,7 +14,7 @@ class embedCommand extends Command {
     if (typeof owner !== 'string') owner = owner[0]
 
     const embed = {
-      color: process.env.COLOR_YELLOW,
+      color: Config.color.yellow,
       title: 'Server Info',
       fields: [
         {

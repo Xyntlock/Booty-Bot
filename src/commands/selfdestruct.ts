@@ -1,6 +1,7 @@
 import { Command } from 'discord-akairo'
 import { sleep } from '../functions'
 import { Message, GuildMember, TextChannel } from 'discord.js'
+import Config from '../config'
 
 interface Args {
   name: GuildMember
@@ -35,7 +36,7 @@ class destructCommand extends Command {
     }
 
     const destructEmbed = {
-      color: process.env.COLOR_YELLOW,
+      color: Config.color.yellow,
       title: 'Self Destruct',
       fields: [
         {
@@ -50,7 +51,7 @@ class destructCommand extends Command {
     }
 
     const freeEmbed = {
-      color: process.env.COLOR_YELLOW,
+      color: Config.color.yellow,
       title: 'Welcome :)',
       fields: [
         {

@@ -1,1 +1,1 @@
-worker: tsc && node dist/index.ts
+worker: tsc && node ../dist/index.ts

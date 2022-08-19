@@ -32,11 +32,6 @@ class embedCommand extends Command {
           inline: true,
         },
         {
-          name: 'Server Region',
-          value: message.guild?.region,
-          inline: true,
-        },
-        {
           name: 'Boosts',
           value: message.guild?.premiumSubscriptionCount,
           inline: true,

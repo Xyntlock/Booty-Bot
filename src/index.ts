@@ -1,7 +1,10 @@
 import { AkairoClient, CommandHandler, ListenerHandler } from 'discord-akairo'
 import config from './config'
+import * as dotenv from 'dotenv'
+
 
 function getConfig() {
+  dotenv.config()
   try {
     const file = require('../token.json')
     console.log('Starting locally')
@@ -46,12 +49,8 @@ class MyClient extends AkairoClient {
   }
 }
 
-try {
   const client = new MyClient()
   client.on('ready', () => {
     console.log('ready')
   })
   client.login(cfg['token'])
-} catch (e) {
-  console.log(e)
-}

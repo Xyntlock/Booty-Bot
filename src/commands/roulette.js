@@ -1,5 +1,4 @@
 const { Command } = require('discord-akairo')
-const { color } = require('../config')
 const { sleep } = require('../functions')
 
 class rouletteCommand extends Command {
@@ -20,7 +19,7 @@ class rouletteCommand extends Command {
     let left = 5
 
     const deadEmbed = {
-      color: color.yellow,
+      color: process.env.COLOR_YELLOW,
       title: 'Russian Roulette',
       fields: [
         {
@@ -37,7 +36,7 @@ class rouletteCommand extends Command {
     }
 
     const winEmbed = {
-      color: color.yellow,
+      color: process.env.COLOR_YELLOW,
       title: 'Russian Roulette',
       fields: [
         {
@@ -58,7 +57,7 @@ class rouletteCommand extends Command {
       console.log(`check = ${check}`)
 
       const survivalEmbed = {
-        color: color.yellow,
+        color: process.env.COLOR_YELLOW,
         title: 'Russian Roulette',
         fields: [
           {

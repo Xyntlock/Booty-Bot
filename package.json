@@ -4,7 +4,8 @@
   "description": "booty bot",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc"
   },
   "author": "Xyntlock",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "color-convert": "^2.0.1",
     "discord-akairo": "^8.1.0",
     "discord.js": "^12.3.1",
+    "dotenv": "^16.0.1",
     "g-i-s": "^2.1.6",
     "nodemon": "^2.0.4",
     "ts-node": "^10.9.1"

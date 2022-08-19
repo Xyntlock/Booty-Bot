@@ -29,9 +29,15 @@ class userInfoCommand extends Command {
     let nick
     args.username.nickname ? (nick = args.username.nickname) : (nick = 'None')
 
+    let url = args.username.user.avatarURL()
+    if(!url) url = ''
+
     const info = {
       color: process.env.COLOR_YELLOW,
       title: args.username.user.tag,
+      thumbnail: {
+        url: url,
+      },
       fields: [
         {
           name: 'User ID',

@@ -2,12 +2,12 @@ import { Command } from 'discord-akairo'
 import type { Message } from 'discord.js'
 
 class coinFlipCommand extends Command {
-  constructor() {
+  public constructor() {
     super('coinflip', {
       aliases: ['coinflip', 'flip', 'jcbsmsmellsnice'],
     })
   }
-  exec(message: Message) {
+  public exec(message: Message) {
     const number = Math.floor(Math.random() * 2)
     let response
 

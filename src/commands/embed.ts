@@ -2,13 +2,13 @@ import { Command } from 'discord-akairo'
 import type { Message } from 'discord.js'
 
 class embedCommand extends Command {
-  constructor() {
+  public constructor() {
     super('embed', {
       aliases: ['embed', 'jcbsmhasgreathair', 'serverinfo'],
     })
   }
 
-  async exec(message: Message) {
+  public async exec(message: Message) {
     let owner = this.client.ownerID
     if (typeof owner !== 'string') owner = owner[0]
 

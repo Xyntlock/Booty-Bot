@@ -1,14 +1,14 @@
-const { Command } = require('discord-akairo')
+import { Command } from 'discord-akairo'
 import type { Message } from 'discord.js'
 
 class keanuCommand extends Command {
-  constructor() {
+  public constructor() {
     super('keanu', {
       aliases: ['keanu'],
     })
   }
 
-  exec(message: Message) {
+  public exec(message: Message) {
     let Keanus = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Reuni%C3%A3o_com_o_ator_norte-americano_Keanu_Reeves_%28cropped%29.jpg/1200px-Reuni%C3%A3o_com_o_ator_norte-americano_Keanu_Reeves_%28cropped%29.jpg',
       'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Keanu_Reeves_2013_%2810615146086%29_%28cropped%29.jpg/220px-Keanu_Reeves_2013_%2810615146086%29_%28cropped%29.jpg',

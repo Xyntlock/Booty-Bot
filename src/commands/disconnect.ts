@@ -1,12 +1,12 @@
 import { Command } from 'discord-akairo'
 import type { Message, GuildMember } from 'discord.js'
 
-type Arg = {
+interface Arg {
   name: GuildMember
 }
 
 export class disconnectCommand extends Command {
-  constructor() {
+  public constructor() {
     super('disconnect', {
       aliases: ['disconnect'],
       args: [
@@ -19,7 +19,7 @@ export class disconnectCommand extends Command {
     })
   }
 
-  exec(message: Message, args: Arg) {
+  public exec(message: Message, args: Arg) {
     let voiceChat = args.name.voice.channel
     console.log(voiceChat)
     if (args.name.permissions.has('MOVE_MEMBERS')) {

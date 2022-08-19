@@ -4,12 +4,12 @@ import convert from 'color-convert'
 import { capitalise } from '../functions'
 import type { Message } from 'discord.js'
 
-type Args = {
+interface Args {
   numOne: string
 }
 
 class colourCommand extends Command {
-  constructor() {
+  public constructor() {
     super('colour', {
       aliases: ['colour', 'color'],
       args: [
@@ -23,22 +23,23 @@ class colourCommand extends Command {
     })
   }
 
-  async exec(message: Message, args: Args) {
+  public async exec(message: Message, args: Args) {
     console.log(args.numOne)
     args.numOne = args.numOne.toLowerCase()
 
-    //get xyntlock avatar
+    // get xyntlock avatar
     let owner = this.client.ownerID
     if (typeof owner !== 'string') owner = owner[0]
 
+    // get random num 0-255
+    function getColor() {
+      return Math.floor(Math.random() * 256)
+    }
+
     if (args.numOne === 'random') {
-      function getColor() {
-        let colorValue
-        return (colorValue = Math.floor(Math.random() * 256))
-      }
-      var ranColor = Color.rgb(getColor(), getColor(), getColor())
-      var ranHex = ranColor.hex()
-      var ranRGB = ranColor.rgb().array()
+      const ranColor = Color.rgb(getColor(), getColor(), getColor())
+      const ranHex = ranColor.hex()
+      const ranRGB = ranColor.rgb().array()
       console.log(ranHex)
 
       let string = ranHex.toString()
@@ -96,7 +97,7 @@ class colourCommand extends Command {
       }
 
       console.log(newColor)
-      var colorHex = newColor.hex()
+      const colorHex = newColor.hex()
 
       let string = colorHex.toString()
       console.log(string)

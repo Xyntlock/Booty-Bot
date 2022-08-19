@@ -1,13 +1,13 @@
 import { Command } from 'discord-akairo'
 import { Message, GuildMember } from 'discord.js'
 
-type Args = {
+interface Args {
   username: GuildMember
   words: string
 }
 
 class dmCommand extends Command {
-  constructor() {
+  public constructor() {
     super('dm', {
       aliases: ['dm'],
       args: [
@@ -25,7 +25,7 @@ class dmCommand extends Command {
     })
   }
 
-  exec(message: Message, args: Args) {
+  public exec(message: Message, args: Args) {
     console.log(args.username)
     console.log(args.words)
     args.username.user.send(`${message.member} says ${args.words}`)

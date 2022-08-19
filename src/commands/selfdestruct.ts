@@ -1,25 +1,32 @@
-const { Command } = require('discord-akairo')
-const { color } = require('../config')
-const { sleep } = require('../functions')
+import { Command } from 'discord-akairo'
+import { sleep } from '../functions'
+import { Message, GuildMember, TextChannel } from 'discord.js'
+
+interface Args {
+  name: GuildMember
+}
 
 class destructCommand extends Command {
-  constructor() {
+  public constructor() {
     super('selfdestruct', {
       aliases: ['selfdestruct'],
       args: [
         {
           id: 'name',
           type: 'member',
-          default: message => message.member,
+          default: (message: Message) => message.member,
         },
       ],
     })
   }
 
-  async exec(message, args) {
+  public async exec(message: Message, args: Args) {
+    let owner = this.client.ownerID
+    if (typeof owner !== 'string') owner = owner[0]
+
     console.log(args.name)
-    if (args.name.id !== message.member.id) {
-      if (message.member.permissions.has('ADMINISTRATOR')) {
+    if (args.name.id !== message.member?.id) {
+      if (message.member?.permissions.has('ADMINISTRATOR')) {
         console.log(`Ok!`)
       } else {
         message.channel.send(`You don't have the permissions for this!`)
@@ -28,7 +35,7 @@ class destructCommand extends Command {
     }
 
     const destructEmbed = {
-      color: color.yellow,
+      color: process.env.COLOR_YELLOW,
       title: 'Self Destruct',
       fields: [
         {
@@ -38,14 +45,12 @@ class destructCommand extends Command {
       ],
       footer: {
         text: `Your greatest mistake. | Brought to you by Booty`,
-        icon_url: (
-          await this.client.users.fetch(this.client.ownerID)
-        ).displayAvatarURL(),
+        icon_url: (await this.client.users.fetch(owner)).displayAvatarURL(),
       },
     }
 
     const freeEmbed = {
-      color: color.yellow,
+      color: process.env.COLOR_YELLOW,
       title: 'Welcome :)',
       fields: [
         {
@@ -55,9 +60,7 @@ class destructCommand extends Command {
       ],
       footer: {
         text: `Good Luck! | Brought to you by Booty`,
-        icon_url: (
-          await this.client.users.fetch(this.client.ownerID)
-        ).displayAvatarURL(),
+        icon_url: (await this.client.users.fetch(owner)).displayAvatarURL(),
       },
     }
 
@@ -65,15 +68,16 @@ class destructCommand extends Command {
       embed: destructEmbed,
     })
 
-    let destructChannel = message.guild.channels.cache.get(`802232326050414633`)
+    let destructChannel =
+      message.guild?.channels.cache.get(`802232326050414633`)
 
     async function destructUser() {
       await sleep(5)
-      let role = message.guild.roles.cache.find(
+      let role = message.guild?.roles.cache.find(
         r => r.name === 'Self Destructed'
       )
-      args.name.roles.add(role)
-      destructChannel.send({
+      if (role) args.name.roles.add(role)
+      ;(destructChannel as TextChannel)?.send({
         embed: freeEmbed,
       })
     }

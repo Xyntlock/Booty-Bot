@@ -34,12 +34,10 @@ class keanuCommand extends Command {
       'https://pyxis.nymag.com/v1/imgs/a77/9cc/ca3a6f4104e32a13878cddebde51a1ca87-GettyImages-695507252.rhorizontal.w807.jpg',
       'https://pyxis.nymag.com/v1/imgs/939/29f/dd93cdaed56764d4c6fee91a6c6bcc11b4-GettyImages-858055188.rdeep-vertical.w450.jpg',
       'https://pyxis.nymag.com/v1/imgs/381/b17/b66627a11c1e72783587e942c69d985a19-GettyImages-83866911.rhorizontal.w807.jpg',
-      'https://pyxis.nymag.com/v1/imgs/0b6/b4c/c01a0e4bb22556507dc04ab3e440637f87-GettyImages-169093919.rhorizontal.w807.jpg',
       'https://pyxis.nymag.com/v1/imgs/f98/cf3/9a2d8ab5bd59944c243e6f06bb3016588c-GettyImages-85857947.rdeep-vertical.w450.jpg',
       'https://pyxis.nymag.com/v1/imgs/e38/c0a/4196e3f6ec35ce410650d9bfe7f965d765-GettyImages-2030172.rdeep-vertical.w450.jpg',
       'https://pyxis.nymag.com/v1/imgs/fde/3e6/c2622dc4876600ad43f0c3c785227040be-GettyImages-542921762.rdeep-vertical.w450.jpg',
       'https://pyxis.nymag.com/v1/imgs/d52/755/d01a94ac86597e69203dd13f03426ec9bd-GettyImages-71240438.rdeep-vertical.w450.jpg',
-      'https://pyxis.nymag.com/v1/imgs/947/371/42f7e341bf841b0dfb2abcc2fb16968fee-spl1178771-006.rdeep-vertical.w450.jpg',
       'https://pyxis.nymag.com/v1/imgs/4e8/64c/7e058dc5236e7efa5922c448b9bc10e980-spl210324-002.rdeep-vertical.w450.jpg',
       'https://pyxis.nymag.com/v1/imgs/48e/b49/3bce78d36b45b429f7f615da265927e76f-spl216522-008.rdeep-vertical.w450.jpg',
     ]
